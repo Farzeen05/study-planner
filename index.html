@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Study Planner</h1>
+      <button id="themeToggle" class="ghost" aria-label="Toggle dark mode">Dark mode</button>
+    </header>
+
+    <section class="stats" aria-label="Task summary">
+      <div><span id="statTotal">0</span> Total</div>
+      <div><span id="statDone">0</span> Completed</div>
+      <div><span id="statPending">0</span> Pending</div>
+    </section>
+
+    <form id="taskForm" class="add">
+      <input id="taskName" type="text" placeholder="What do you need to do?" required maxlength="120">
+      <input id="taskDue" type="date" aria-label="Due date">
+      <select id="taskCategory" aria-label="Category">
+        <option>Homework</option><option>Assignment</option><option>Exam</option><option>Personal</option>
+      </select>
+      <select id="taskPriority" aria-label="Priority">
+        <option value="1">High</option><option value="2" selected>Medium</option><option value="3">Low</option>
+      </select>
+      <button type="submit">Add task</button>
+    </form>
+
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search tasks by name">
+      <div class="filters" role="group" aria-label="Filter by status">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="completed">Completed</button>
+        <button data-filter="pending">Pending</button>
+      </div>
+      <select id="sort" aria-label="Sort tasks">
+        <option value="manual">Manual order (drag to reorder)</option>
+        <option value="due">Sort by due date</option>
+        <option value="priority">Sort by priority</option>
+      </select>
+    </section>
+
+    <ul id="taskList" class="list"></ul>
+    <p id="empty" class="empty" hidden>No tasks to show. Add one above.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
